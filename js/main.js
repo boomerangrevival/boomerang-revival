@@ -49,16 +49,47 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
-    revealEls.forEach(function (el, i) {
-      // Auto-stagger siblings that share a parent group via data-stagger
-      if (el.hasAttribute('data-stagger')) {
-        el.style.setProperty('--d', (i % 6) * 0.08 + 's');
+    revealEls.forEach(function (el) {
+      // Cascade siblings that share a parent: delay each by its position in the group
+      if (el.hasAttribute('data-stagger') && el.parentNode) {
+        var group = Array.prototype.filter.call(el.parentNode.children, function (c) {
+          return c.nodeType === 1 && c.hasAttribute('data-stagger');
+        });
+        var idx = group.indexOf(el);
+        if (idx > 0) el.style.setProperty('--d', (idx * 0.12).toFixed(2) + 's');
       }
       io.observe(el);
     });
   } else {
     // Fallback: just show everything
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ---------- 3b. Scroll parallax for decorative layers ---------- */
+  // Any element with data-parallax="0.3" drifts at that fraction of scroll speed.
+  // Uses transform only + rAF batching, so it stays smooth. Skipped if the user
+  // prefers reduced motion.
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var parallaxEls = document.querySelectorAll('[data-parallax]');
+  if (parallaxEls.length && !prefersReduced) {
+    var ticking = false;
+    var updateParallax = function () {
+      var vh = window.innerHeight;
+      parallaxEls.forEach(function (el) {
+        var rect = el.getBoundingClientRect();
+        // How far this element's center is from the viewport center, normalized
+        var offset = (rect.top + rect.height / 2 - vh / 2) / vh;
+        var speed = parseFloat(el.getAttribute('data-parallax')) || 0.2;
+        el.style.transform = 'translate3d(0,' + (offset * speed * -140).toFixed(1) + 'px,0)';
+      });
+      ticking = false;
+    };
+    var requestParallax = function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(updateParallax); }
+    };
+    window.addEventListener('scroll', requestParallax, { passive: true });
+    window.addEventListener('resize', requestParallax);
+    updateParallax();
   }
 
   /* ---------- 4. FAQ accordion ---------- */

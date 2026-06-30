@@ -58,8 +58,8 @@
 
     <!-- ======================= HERO ======================= -->
     <section class="hero">
-      <!-- Animated boomerang arc motif -->
-      <div class="hero__motif" aria-hidden="true">
+      <!-- Animated boomerang arc motif (drifts gently on scroll) -->
+      <div class="hero__motif" aria-hidden="true" data-parallax="0.12">
         <svg viewBox="0 0 860 460">
           <defs>
             <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="0">
@@ -106,7 +106,7 @@
     <!-- ======================= PROBLEM ======================= -->
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head reveal" data-anim="clip">
           <span class="eyebrow">The hidden money problem</span>
           <h2>You already earned these customers. You just stopped collecting.</h2>
           <p class="lead" style="margin-top:18px">
@@ -118,7 +118,7 @@
         </div>
 
         <div class="grid grid-3 problem-grid">
-          <div class="card card--glass reveal" data-stagger>
+          <div class="card card--glass reveal" data-anim="rise" data-stagger>
             <div class="problem-item">
               <div class="problem-item__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></div>
               <div>
@@ -127,7 +127,7 @@
               </div>
             </div>
           </div>
-          <div class="card card--glass reveal" data-stagger>
+          <div class="card card--glass reveal" data-anim="rise" data-stagger>
             <div class="problem-item">
               <div class="problem-item__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
               <div>
@@ -136,7 +136,7 @@
               </div>
             </div>
           </div>
-          <div class="card card--glass reveal" data-stagger>
+          <div class="card card--glass reveal" data-anim="rise" data-stagger>
             <div class="problem-item">
               <div class="problem-item__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg></div>
               <div>
@@ -151,28 +151,28 @@
 
     <!-- ======================= HOW IT WORKS ======================= -->
     <section class="section section--tight">
-      <div class="glow-spot" style="top:-60px; right:5%"></div>
+      <div class="glow-spot" style="top:-60px; right:5%" data-parallax="0.25"></div>
       <div class="container">
-        <div class="section-head section-head--center reveal">
+        <div class="section-head section-head--center reveal" data-anim="clip">
           <span class="eyebrow">How it works</span>
           <h2>Three steps to revenue you already earned</h2>
           <p class="lead" style="margin-top:18px">No new ad spend. No new systems for you to learn. We handle it end to end.</p>
         </div>
 
         <div class="grid grid-3 steps">
-          <div class="step reveal" data-stagger>
+          <div class="step reveal" data-anim="up" data-stagger>
             <div class="step__line"></div>
             <div class="step__num">Step</div>
             <h3>We tap your existing customer list</h3>
             <p>You hand us a simple export from your booking software or POS. We clean it, segment it, and identify the lapsed customers worth bringing back.</p>
           </div>
-          <div class="step reveal" data-stagger>
+          <div class="step reveal" data-anim="up" data-stagger>
             <div class="step__line"></div>
             <div class="step__num">Step</div>
             <h3>We run a proven win-back campaign</h3>
             <p>We write and send a short, compliant email and SMS sequence with an offer built to get a reply — and a booking. All under your brand.</p>
           </div>
-          <div class="step reveal" data-stagger>
+          <div class="step reveal" data-anim="up" data-stagger>
             <div class="step__line"></div>
             <div class="step__num">Step</div>
             <h3>Old customers come back — you pay from the revenue</h3>
@@ -185,14 +185,14 @@
     <!-- ======================= SERVICES OVERVIEW ======================= -->
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head reveal" data-anim="left">
           <span class="eyebrow">What we do</span>
           <h2>Built to recover revenue and keep it coming</h2>
         </div>
 
         <div class="grid grid-3">
           <!-- Service card -->
-          <article class="card card--hover reveal" data-stagger>
+          <article class="card card--hover reveal" data-anim="scale" data-stagger>
             <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a13 13 0 0 1-18 0"/><path d="M3 16a13 13 0 0 1 18 0"/><circle cx="12" cy="12" r="2"/></svg></div>
             <h3>Database Reactivation</h3>
             <p>Our flagship. A done-for-you campaign that wakes up your dormant customer list and converts it into booked appointments — fast.</p>
@@ -201,7 +201,7 @@
             </a>
           </article>
 
-          <article class="card card--hover reveal" data-stagger>
+          <article class="card card--hover reveal" data-anim="scale" data-stagger>
             <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
             <h3>Lead Follow-Up Automation</h3>
             <p>Missed-call text-back and instant lead follow-up so new enquiries never slip through the cracks while you're busy serving customers.</p>
@@ -210,7 +210,7 @@
             </a>
           </article>
 
-          <article class="card card--hover reveal" data-stagger>
+          <article class="card card--hover reveal" data-anim="scale" data-stagger>
             <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></div>
             <h3>Ongoing Retention Campaigns</h3>
             <p>Recurring win-back offers, birthday and "we miss you" messages that keep customers cycling back instead of quietly disappearing.</p>
@@ -224,9 +224,10 @@
 
     <!-- ======================= WHY US / RISK REVERSAL ======================= -->
     <section class="section section--tight">
+      <div class="glow-spot" style="top:8%; left:-6%" data-parallax="0.3"></div>
       <div class="container">
         <div class="grid grid-2" style="gap:48px; align-items:center">
-          <div class="reveal">
+          <div class="reveal" data-anim="left">
             <span class="eyebrow">Why Boomerang Revival</span>
             <h2>The risk is on us. The revenue is yours.</h2>
             <p class="lead" style="margin:18px 0 30px">
@@ -241,21 +242,21 @@
             </ul>
           </div>
 
-          <div class="reveal" style="--d:.1s">
+          <div>
             <div class="grid grid-2 promise-grid">
-              <div class="card card--glass promise">
+              <div class="card card--glass promise reveal" data-anim="scale" data-stagger>
                 <div class="promise__big">$0</div>
                 <p>Upfront cost to test the model on your list</p>
               </div>
-              <div class="card card--glass promise">
+              <div class="card card--glass promise reveal" data-anim="scale" data-stagger>
                 <div class="promise__big">Days</div>
                 <p>From kickoff to a live campaign — not months</p>
               </div>
-              <div class="card card--glass promise">
+              <div class="card card--glass promise reveal" data-anim="scale" data-stagger>
                 <div class="promise__big">100%</div>
                 <p>Done for you, under your brand and voice</p>
               </div>
-              <div class="card card--glass promise">
+              <div class="card card--glass promise reveal" data-anim="scale" data-stagger>
                 <div class="promise__big">Compliant</div>
                 <p>Consent &amp; opt-out best practices built in</p>
               </div>
@@ -267,8 +268,9 @@
 
     <!-- ======================= TESTIMONIALS PREVIEW ======================= -->
     <section class="section">
+      <div class="glow-spot" style="bottom:0; right:-4%" data-parallax="0.3"></div>
       <div class="container">
-        <div class="section-head section-head--center reveal">
+        <div class="section-head section-head--center reveal" data-anim="clip">
           <span class="eyebrow">What owners say</span>
           <h2>Loved by busy local business owners</h2>
           <p class="lead" style="margin-top:16px">
@@ -278,7 +280,7 @@
         </div>
 
         <div class="grid grid-3">
-          <figure class="card card--glass reveal" data-stagger>
+          <figure class="card card--glass reveal" data-anim="blur" data-stagger>
             <span class="sample-flag">Sample — replace</span>
             <blockquote class="quote">Honestly forgot how many people were on our old list. The reactivation campaign filled a slow week without me lifting a finger.”</blockquote>
             <figcaption class="testimonial__by">
@@ -286,7 +288,7 @@
               <div><b>Med Spa Owner</b><span>Sample client · Florida</span></div>
             </figcaption>
           </figure>
-          <figure class="card card--glass reveal" data-stagger>
+          <figure class="card card--glass reveal" data-anim="blur" data-stagger>
             <span class="sample-flag">Sample — replace</span>
             <blockquote class="quote">The fact that we only paid from what came back made it a no-brainer to try. Wish we'd done it a year ago.”</blockquote>
             <figcaption class="testimonial__by">
@@ -294,7 +296,7 @@
               <div><b>Salon Owner</b><span>Sample client · Georgia</span></div>
             </figcaption>
           </figure>
-          <figure class="card card--glass reveal" data-stagger>
+          <figure class="card card--glass reveal" data-anim="blur" data-stagger>
             <span class="sample-flag">Sample — replace</span>
             <blockquote class="quote">They wrote everything, sent everything, and chased the replies. I just saw the calendar start filling up again.”</blockquote>
             <figcaption class="testimonial__by">
@@ -304,7 +306,7 @@
           </figure>
         </div>
 
-        <div style="text-align:center; margin-top:40px" class="reveal">
+        <div style="text-align:center; margin-top:40px" class="reveal" data-anim="up">
           <a href="testimonials.html" class="btn btn--ghost">Read more testimonials
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>

@@ -814,12 +814,41 @@ h3 { font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.2; }
 .reveal {
   opacity: 0;
   transform: translateY(26px);
-  transition: opacity .7s var(--ease), transform .7s var(--ease);
+  transition: opacity .7s var(--ease), transform .85s var(--ease),
+              filter .7s var(--ease), clip-path .9s var(--ease);
   will-change: opacity, transform;
 }
-.reveal.is-visible { opacity: 1; transform: none; }
-/* stagger helper — add data-delay on element via JS or inline style */
+.reveal.is-visible { opacity: 1; transform: none; filter: none; }
+/* stagger helper — --d (delay) is set inline (hero) or by JS per group */
 .reveal[style*="--d"] { transition-delay: var(--d); }
+
+/* -- Named reveal variants — set data-anim="…" on a .reveal element -- */
+/* Directional slides */
+.reveal[data-anim="up"]    { transform: translateY(52px); }
+.reveal[data-anim="down"]  { transform: translateY(-52px); }
+.reveal[data-anim="left"]  { transform: translateX(-60px); }
+.reveal[data-anim="right"] { transform: translateX(60px); }
+/* Scale / zoom pops */
+.reveal[data-anim="scale"] { transform: scale(.84); }
+.reveal[data-anim="rise"]  { transform: translateY(64px) scale(.95); }
+/* Focus-in: blurred + soft rise that sharpens as it settles */
+.reveal[data-anim="blur"]  { transform: translateY(28px) scale(.98); filter: blur(16px); }
+/* Clip wipes (use on text blocks only — clipping is fine where there's no shadow) */
+.reveal[data-anim="clip"]  { clip-path: inset(0 0 100% 0); transform: translateY(18px); }
+.reveal[data-anim="wipe"]  { clip-path: inset(0 100% 0 0); }
+.reveal[data-anim="clip"].is-visible,
+.reveal[data-anim="wipe"].is-visible { clip-path: inset(0 0 0 0); }
+
+/* Cards get a one-shot purple glow pulse as they appear (synced to stagger) */
+.card.reveal[data-anim].is-visible {
+  animation: card-reveal-glow 1.25s var(--ease) both;
+  animation-delay: var(--d, 0s);
+}
+@keyframes card-reveal-glow {
+  0%   { box-shadow: 0 0 0 0 rgba(139,92,246,0); }
+  45%  { box-shadow: 0 22px 55px -10px var(--glow); }
+  100% { box-shadow: var(--shadow-card); }
+}
 
 /* ============================================================
    14. RESPONSIVE
@@ -877,5 +906,6 @@ h3 { font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.2; }
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal { opacity: 1; transform: none; }
+  .reveal { opacity: 1 !important; transform: none !important; filter: none !important; clip-path: none !important; }
+  [data-parallax] { transform: none !important; }
 }
