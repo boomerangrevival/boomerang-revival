@@ -169,7 +169,7 @@
           form.reset();
           if (status) {
             status.className = 'form-status is-success';
-            status.textContent = "Thanks — your request is in. We'll reach out within one business day to set up your free reactivation audit.";
+            status.textContent = "Thanks — your request is in. We'll reach out within 24 hours to set up your free reactivation audit.";
           }
         } else if (status) {
           status.className = 'form-status is-error';
