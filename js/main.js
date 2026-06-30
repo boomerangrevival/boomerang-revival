@@ -47,7 +47,7 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     revealEls.forEach(function (el) {
       // Cascade siblings that share a parent: delay each by its position in the group
@@ -56,7 +56,7 @@
           return c.nodeType === 1 && c.hasAttribute('data-stagger');
         });
         var idx = group.indexOf(el);
-        if (idx > 0) el.style.setProperty('--d', (idx * 0.12).toFixed(2) + 's');
+        if (idx > 0) el.style.setProperty('--d', (idx * 0.09).toFixed(2) + 's');
       }
       io.observe(el);
     });
