@@ -142,7 +142,7 @@
           }
         } else if (status) {
           status.className = 'form-status is-error';
-          status.textContent = 'Something went wrong sending your message. Please email us directly at hello@boomerangrevival.com.';
+          status.textContent = 'Something went wrong sending your message. Please email us directly at boomerangrevival@gmail.com.';
         }
       };
 
