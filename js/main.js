@@ -47,7 +47,10 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    // Fire EARLY: reveal an element as it approaches the viewport (200px before it
+    // enters), not after it's well inside. Otherwise content sits at opacity:0 while
+    // already on screen, which reads as a big empty gap.
+    }, { threshold: 0, rootMargin: '0px 0px 200px 0px' });
 
     revealEls.forEach(function (el) {
       // Cascade siblings that share a parent: delay each by its position in the group
